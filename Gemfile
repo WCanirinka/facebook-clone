@@ -8,13 +8,7 @@ ruby '2.6.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use sqlite3 as the database for Active Record
-group :development, :test do
-  gem 'sqlite3'
-end
-group :production do
-  gem 'fog'
-  gem 'pg'
-end
+gem 'pg'
 # Faker Gem for creating fake objects. Use only for Development Environment
 gem 'faker'
 # Use Puma as the app server
@@ -40,6 +34,7 @@ gem 'will_paginate'
 gem 'carrierwave'
 gem 'mini_magick'
 
+
 gem 'bootstrap-sass'
 gem 'rails-controller-testing'
 # Use Active Storage variant
@@ -48,6 +43,7 @@ gem 'rails-controller-testing'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
