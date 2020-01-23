@@ -9,17 +9,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header>
+  <header class="navbar top-navbar">
     <nav>
       <div id="user_nav">
         <% if user_signed_in? %>
           Signed in as <%= current_user.email %>
-          <%= link_to "Profile", myprofile_path %>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+          <%= link_to "Profile", myprofile_path, :class => "header-link" %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "header-link" %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> or
-          <%= link_to "Sign in", new_user_session_path %>
+          <%= link_to "Sign up", new_user_registration_path, :class => "header-link" %>
+          <%= link_to "Sign in", new_user_session_path, :class => "header-link" %>
         <% end %>
+        <%= link_to "Posts", posts_path, :class => "header-link" %>
       </div>
     </nav>
   </header>
