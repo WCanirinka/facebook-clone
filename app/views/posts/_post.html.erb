@@ -1,0 +1,8 @@
+<li>
+    <p><%= post.title %></p>
+    <p><%= post.content %></p>
+    <h6>Updated at: <%= post.updated_at %></h6>
+    <% if @logged_in %>
+        <h6><%= User.find_by(id: post.user_id).first_name %></h6>
+    <% end %>
+<li>
