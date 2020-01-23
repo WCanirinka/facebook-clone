@@ -3,12 +3,14 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
-  validates :email, presence: true, uniqueness: { case_sensitive: false }, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
+  validates :email, presence: true, uniqueness: { case_sensitive: false },
+                    length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }
   before_save :downcase_email
   validates :password, presence: true, length: { within: 6..15 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook]
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :validatable, :omniauthable, omniauth_providers: %i[facebook]
 
   def downcase_email
     self.email = email.downcase
@@ -29,7 +31,7 @@ class User < ApplicationRecord
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
+      if data == session['devise.facebook_data'] && session['devise.facebook_data']['extra']['raw_info']
         user.email = data['email'] if user.email.blank?
       end
     end
