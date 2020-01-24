@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/posts/index', to: 'posts#index'
-
+  get "/users" => "users#index"
   root 'welcome#index'
 
   get "myprofile" => "users#show", :as => :myprofile

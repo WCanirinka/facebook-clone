@@ -1,8 +1,6 @@
 <h1>Posts</h1>
 <%= link_to "Home", root_path %>
-<% if user_signed_in? %>
-  <%= link_to "Create Post", new_post_path %>
-<% end %>
+<%= create_post_link %>
 <ul>
     <%= render @posts %>
 <ul>
