@@ -2,5 +2,9 @@
 <%= link_to "Home", root_path %>
 <%= create_post_link %>
 <ul>
-    <%= render @posts %>
+    <% @posts.each do |post| %>
+        <%= render post %>
+        <%= render post.comments %>
+        <%= link_to "Add comment" , 'comments/form' %>
+    <% end %> 
 <ul>
