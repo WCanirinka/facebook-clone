@@ -5,6 +5,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
   def create
     @post = Post.new(post_params)
     @post.user = current_user
@@ -19,6 +23,12 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @logged_in = user_signed_in?
+  end
+
+  def destroy
+      @post = Post.find(params[:id])
+      @post.destroy
+      redirect_to posts_path
   end
 
   private

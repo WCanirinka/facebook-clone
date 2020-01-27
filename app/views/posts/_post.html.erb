@@ -1,5 +1,5 @@
 <li>
-    <p><%= post.title %></p>
+    <%= link_to post.title , post_path(post) %>
     <p><%= post.content %></p>
     <h6>Updated at: <%= post.updated_at %></h6>
     <h6> <%= post_user_name(post) %> </h6>
