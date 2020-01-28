@@ -22,7 +22,7 @@ RSpec.describe Comment, type: :model do
             Planet Ubuntu is a collection of community blogs.
             If you are interested in getting to know other Ubuntu users or
             seeing a list of Ubuntu teams outside the general Ubuntu world,
-            check out our social network page. '
+            check out our social network. '
     @user = User.create(email: 'foobar@example.com', first_name: 'foobar', password: 'foobar')
     @post = Post.create(title: 'title123', content: 'text123', user_id: @user.id)
     @comment = Comment.create(content: 'content', user_id: @user.id, post_id: @post.id)
