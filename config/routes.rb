@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'commentlikes/new'
+  get 'commentlikes/destroy'
   get '/posts/index', to: 'posts#index'
   get "/users" => "users#index"
   root 'welcome#index'

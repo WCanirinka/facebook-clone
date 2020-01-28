@@ -1,0 +1,2 @@
+module PostlikesHelper
+end

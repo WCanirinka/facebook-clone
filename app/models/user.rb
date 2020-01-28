@@ -2,6 +2,8 @@
 
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :plikes, through: :postlikes, source: :post
+  has_many :clikes, through: :commentlikes, source: :comment
   before_save :downcase_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and
@@ -31,5 +33,21 @@ class User < ApplicationRecord
         user.email = data['email'] if user.email.blank?
       end
     end
+  end
+
+  def postlike(post)
+    plikes << post
+  end
+    
+  def postunlike(post)
+    plikes.delete(post)
+  end 
+
+  def commentlike(comment)
+    clikes << comment
+  end
+    
+  def commentunlike(comment)
+    clikes.delete(comment)
   end
 end
