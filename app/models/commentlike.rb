@@ -1,3 +1,3 @@
 class Commentlike < ApplicationRecord
-    belong_to :comment
+    belongs_to :comment
 end

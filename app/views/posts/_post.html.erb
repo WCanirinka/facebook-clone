@@ -1,6 +1,22 @@
 <li>
-    <%= link_to post.title , post_path(post) %>
+    <h3> <%= link_to post.title, post_path(post) %> </h3>
     <p><%= post.content %></p>
     <h6>Updated at: <%= post.updated_at %></h6>
     <h6> <%= post_user_name(post) %> </h6>
+    <div class="like-unlike">
+      <% unless current_user.liked_post?(post) %>
+        <%= form_for(current_user.postlikes.build) do |f| %>
+          <%= hidden_field_tag :post_id, post.id %>
+          <%= f.submit 'Like Post' %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user.postlikes.find_by(post_id: post.id), html: {method: :delete}) do |f| %>
+          <%= hidden_field_tag :post_id, post.id %>
+          <%= f.submit 'Unlike Post' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="likes">
+      <p>Post Likes: <%= post.postlikes.count %></p>
+    </div>
 <li>

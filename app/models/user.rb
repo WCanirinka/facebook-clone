@@ -2,6 +2,8 @@
 
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :postlikes, foreign_key: 'user_id'
+  has_many :commentlikes, foreign_key: 'user_id'
   has_many :plikes, through: :postlikes, source: :post
   has_many :clikes, through: :commentlikes, source: :comment
   before_save :downcase_email
@@ -38,16 +40,24 @@ class User < ApplicationRecord
   def postlike(post)
     plikes << post
   end
-    
+
   def postunlike(post)
     plikes.delete(post)
-  end 
+  end
+
+  def liked_post?(post)
+    plikes.include?(post)
+  end
 
   def commentlike(comment)
     clikes << comment
   end
-    
+
   def commentunlike(comment)
     clikes.delete(comment)
+  end
+
+  def liked_comment?(comment)
+    clikes.include?(comment)
   end
 end

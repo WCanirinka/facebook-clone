@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :index, :show] do
     resources :comments
   end
+  resources :postlikes
+  resources :commentlikes
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
