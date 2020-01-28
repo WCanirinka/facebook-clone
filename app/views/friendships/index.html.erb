@@ -1,0 +1,13 @@
+<h4>Your friend requests:</h4>
+
+<ul>
+<% @requests.each do |requester| %>
+  <li>
+    <%= image_tag requester.gravatar_url, :class => "gravatar" %>
+    <b><%= link_to  requester.first_name, requester %> </b>
+
+    <%= button_to 'Accept Request', confirm_friend_url(id: requester.id) %>
+    <%= button_to 'Decline Request', decline_friend_url(id: requester.id) %>
+  </li>
+<% end %>
+</ul>
