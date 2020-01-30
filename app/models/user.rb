@@ -7,7 +7,10 @@ class User < ApplicationRecord
   has_many :plikes, through: :postlikes, source: :post
   has_many :clikes, through: :commentlikes, source: :comment
   has_many :friendships
-  has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :friends, -> { where(friendships: { status: 'accepted' }) }, through: :friendships
+  has_many :requested_friends, -> { where(friendships: { status: 'requested' }) },
+           through: :friendships, source: :friend
+  has_many :pending_friends, -> { where(friendships: { status: 'pending' }) }, through: :friendships, source: :friend
   before_save :downcase_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and
@@ -61,37 +64,5 @@ class User < ApplicationRecord
 
   def liked_comment?(comment)
     clikes.include?(comment)
-  end
-
-  def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    friends_array + inverse_friendships.map { |friendship| friendship.user if friendship.confirmed }
-  end
-
-  def pending_friends
-    friendships.map { |friendship| friendship.friend unless friendship.confirmed }.compact
-  end
-
-  def friend_requests
-    inverse_friendships.map { |friendship| friendship.user unless friendship.confirmed }.compact
-  end
-
-  def confirm_friend(user)
-    friendship = inverse_friendships.find { |frendship| frendship.user == user }
-    friendship.confirmed = true
-    friendship.save
-  end
-
-  def friend?(user)
-    friends.include?(user)
-  end
-
-  def not_friends?(user)
-    !friends.include?(user)
-  end
-
-  def request_counter
-    requests = self.friend_requests.count
-    requests if requests > 0
   end
 end

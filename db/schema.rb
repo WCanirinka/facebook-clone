@@ -34,22 +34,13 @@ ActiveRecord::Schema.define(version: 2020_01_28_210549) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "friends", force: :cascade do |t|
-    t.integer "requester_id"
-    t.integer "requestee_id"
-    t.boolean "friendship_status", default: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "friendships", force: :cascade do |t|
-    t.boolean "confirmed"
-    t.bigint "user_id", null: false
-    t.bigint "friend_id", null: false
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.string "status"
+    t.datetime "accepted_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["friend_id"], name: "index_friendships_on_friend_id"
-    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "postlikes", force: :cascade do |t|
@@ -95,8 +86,6 @@ ActiveRecord::Schema.define(version: 2020_01_28_210549) do
   add_foreign_key "commentlikes", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "friendships", "friends"
-  add_foreign_key "friendships", "users"
   add_foreign_key "postlikes", "posts"
   add_foreign_key "postlikes", "users"
   add_foreign_key "posts", "users"

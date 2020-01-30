@@ -1,17 +1,23 @@
+# frozen_string_literal: true
+
 class FriendshipsController < ApplicationController
-  def index
-    @requests = current_user.friend_requests
+  include FriendshipsHelper
+  before_action :setup_friends
+
+  def new
+    @friendship = Friendship.new
   end
 
   def create
-    count = Friendship.where(user_id: current_user.id, friend_id: params[:friendship][:user_id]).count ||
-            Friendship.where(friend_id: current_user.id, user_id: params[:friendship][:user_id]).count
-    @friendship = current_user.friendships.build(friend_id: params[:friendship][:user_id]) if count.zero?
-    if @friendship&.save
-      flash[:success] = 'Friend request succesfully sent'
-      redirect_to users_path, notice: 'You just sent a request'
-    else
-      redirect_to users_path, notice: 'Friendship request already exists'
-    end
+    Friendship.request(@user, @friend)
+    flash[:notice] = 'Friend request sent.'
+    redirect_to root_path
+  end
+
+  private
+
+  def setup_friends
+    @user = current_user
+    @friend = User.find(params[:friend])
   end
 end

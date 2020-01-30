@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   get '/posts/index', to: 'posts#index'
   get "/users" => "users#index"
   root 'welcome#index'
-
-  get "myprofile" => "users#show", :as => :myprofile
+  #post '/friendships/new', to: 'friendships#create'
   resources :posts, only: [:new, :create, :index, :show] do
     resources :comments
   end
+  resources :friendships, only: [:new, :create, :destroy]
   resources :postlikes
   resources :commentlikes
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }

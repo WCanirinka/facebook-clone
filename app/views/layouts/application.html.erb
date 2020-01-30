@@ -6,7 +6,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <header class="navbar top-navbar">
@@ -14,18 +14,30 @@
       <div id="user_nav">
         <% if user_signed_in? %>
           Signed in as <%= current_user.email %>
-          <%= link_to "Profile", myprofile_path, :class => "header-link" %>
           <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "header-link" %>
         <% else %>
           <%= link_to "Sign up", new_user_registration_path, :class => "header-link" %>
           <%= link_to "Sign in", new_user_session_path, :class => "header-link" %>
         <% end %>
         <%= link_to "Posts", posts_path, :class => "header-link" %>
+        <%= link_to "Users", users_path, :class => "header-link" %>
       </div>
     </nav>
   </header>
 
   <body>
+    <% if user_signed_in? %>
+    <div class="float-right">
+      <table>
+        <% current_user.friends.each do |friend| %>
+        <tr>
+        <td><%= link_to thumbnail_tag(friend), profile_for(friend) %></td>
+        <td><%= link_to friend.name, profile_for(friend) %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>
