@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @user = User.create(email: 'FOOBAR@example.com', first_name: 'foobar', password: 'foobar')
+    @user = User.create(email: 'FOOBAR9@example.com', first_name: 'foobar', password: 'foobar')
   end
 
   context 'with valid details' do
