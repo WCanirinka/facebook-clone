@@ -31,8 +31,7 @@
       <table>
         <% current_user.friends.each do |friend| %>
         <tr>
-        <td><%= link_to thumbnail_tag(friend), profile_for(friend) %></td>
-        <td><%= link_to friend.name, profile_for(friend) %></td>
+          <td><%= link_to friend.first_name, users_path(friend) %></td>
         </tr>
         <% end %>
       </table>
