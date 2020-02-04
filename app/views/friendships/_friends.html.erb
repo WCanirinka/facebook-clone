@@ -2,7 +2,7 @@
 <table>
   <tr>
     <th colspan="3" align="left">
-    <%= pluralize(@user.friends.count, "RailsSpace friend") %>
+    <%= pluralize(@user.friends.count, "Friends") %>
     </th>
   </tr>
   <% @user.friends.each do |friend| %>
@@ -20,7 +20,7 @@
   <% unless @user.requested_friends.empty?  %>
     <tr>
       <th colspan="3" align="left">
-        <%= pluralize(@user.requested_friends.count, "requested friend") %>
+        <%= pluralize(@user.requested_friends.count, "Requested friends") %>
       </th>
     </tr>
       <% @user.requested_friends.each do |requester| %>
@@ -42,7 +42,7 @@
   <% unless @user.pending_friends.empty? %>
     <tr>
       <th colspan="3" align="left">
-        <%= pluralize(@user.pending_friends.count, "pending friend") %>
+        <%= pluralize(@user.pending_friends.count, "Pending friends") %>
       </th>
     </tr>
     <% @user.pending_friends.each do |pending_friend| %>
