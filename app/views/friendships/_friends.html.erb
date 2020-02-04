@@ -12,7 +12,7 @@
     </td>
     <td>
       <%= link_to "Delete",
-      delete_friend_path(current_user, friend),
+      delete_friend_path(friend),
       method: :post %>
       <% end %>
     </td>
@@ -31,10 +31,9 @@
         </td>
         <td>
           <%= link_to "Accept",
-          accept_friend_path(current_user, requester.id),
-          method: :post %>
+          accept_friend_path(requester), method: :post %>
           <%= link_to "Decline",
-          decline_friend_path(current_user, requester.id), method: :post %>
+          decline_friend_path(requester), method: :post %>
         </td>
       </tr>
       <% end %>
