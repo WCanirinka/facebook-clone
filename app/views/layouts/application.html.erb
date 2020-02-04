@@ -14,13 +14,13 @@
       <div id="user_nav">
         <% if user_signed_in? %>
           Signed in as <%= current_user.email %>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "header-link" %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "header-link", :id => "sign-out" %>
         <% else %>
-          <%= link_to "Sign up", new_user_registration_path, :class => "header-link" %>
-          <%= link_to "Sign in", new_user_session_path, :class => "header-link" %>
+          <%= link_to "Sign up", new_user_registration_path, :class => "header-link", :id => "sign-up" %>
+          <%= link_to "Sign in", new_user_session_path, :class => "header-link", :id => "sign-in" %>
         <% end %>
-        <%= link_to "Posts", posts_path, :class => "header-link" %>
-        <%= link_to "Users", users_path, :class => "header-link" %>
+        <%= link_to "Posts", posts_path, :class => "header-link", :id => "posts" %>
+        <%= link_to "Users", users_path, :class => "header-link", :id => "users" %>
       </div>
     </nav>
   </header>
