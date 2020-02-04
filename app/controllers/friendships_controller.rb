@@ -7,7 +7,7 @@ class FriendshipsController < ApplicationController
   def create
     Friendship.request(@user, @friend)
     flash[:notice] = 'Friend request sent.'
-    redirect_to root_path
+    redirect_to user_path(@friend)
   end
 
   def accept
@@ -17,7 +17,7 @@ class FriendshipsController < ApplicationController
     else
       flash[:notice] = "No friendship request from #{@friend.first_name}."
     end
-    redirect_to root_path
+    redirect_to user_path(@friend)
   end
 
   def decline
@@ -27,7 +27,7 @@ class FriendshipsController < ApplicationController
     else
       flash[:notice] = "No friendship request from #{@friend.first_name}."
     end
-    redirect_to root_path
+    redirect_to user_path(@friend)
   end
 
   def cancel
@@ -37,7 +37,7 @@ class FriendshipsController < ApplicationController
     else
       flash[:notice] = "No request for friendship with #{@friend.first_name}"
     end
-    redirect_to root_path
+    redirect_to user_path(@friend)
   end
 
   def delete
@@ -47,7 +47,7 @@ class FriendshipsController < ApplicationController
     else
       flash[:notice] = "You aren't friends with #{@friend.first_name}"
     end
-    redirect_to root_path
+    redirect_to user_path(@friend)
   end
 
   private

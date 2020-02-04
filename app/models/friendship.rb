@@ -28,8 +28,8 @@ class Friendship < ApplicationRecord
 
   def self.breakup(user, friend)
     transaction do
-      destroy(find_by_user_id_and_friend_id(user, friend))
-      destroy(find_by_user_id_and_friend_id(friend, user))
+      destroy(find_by_user_id_and_friend_id(user.id, friend.id).id)
+      find_by_user_id_and_friend_id(friend.id, user.id).destroy
     end
   end
 

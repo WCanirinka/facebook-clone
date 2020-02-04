@@ -53,7 +53,7 @@
         </td>
         <td>
           <%= link_to "Cancel request",
-          cancel_friend_path(current_user, pending_friend.id), method: :post %>
+          cancel_friend_path(pending_friend), method: :post %>
         </td>
       </tr>
     <% end %>
