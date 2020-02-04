@@ -10,11 +10,11 @@
         <% unless Friendship.exists?(current_user, @user) %>
           <br/>
           <%= link_to "Request friendship with #{@user.first_name}",
-            :controller => 'friendships',
-            :action => 'create',
-            :id => @user,
-            :confirm =>
-            "Send friend request to #{@user.first_name}?" %>
+          { :controller => "friendships", :action => "create",
+          :friend => @user.id },
+          method: :post,
+          :confirm =>
+          "Send friend request to #{@user.first_name}?" %>
         <% end %>
       </div>
     </section>
