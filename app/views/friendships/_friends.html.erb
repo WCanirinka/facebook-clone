@@ -1,0 +1,60 @@
+<% @user = current_user %>
+<table>
+  <tr>
+    <th colspan="3" align="left">
+    <%= pluralize(@user.friends.count, "RailsSpace friend") %>
+    </th>
+  </tr>
+  <% @user.friends.each do |friend| %>
+  <tr>
+    <td width="50">
+      <%= link_to friend.first_name, user_path(friend) %>
+    </td>
+    <td>
+      <%= link_to "Delete",
+      delete_friend_path(current_user, friend) %>
+      <% end %>
+    </td>
+  </tr>
+
+  <% unless @user.requested_friends.empty?  %>
+    <tr>
+      <th colspan="3" align="left">
+        <%= pluralize(@user.requested_friends.count, "requested friend") %>
+      </th>
+    </tr>
+      <% @user.requested_friends.each do |requester| %>
+      <tr>
+        <td>
+          <%= link_to requester.first_name, user_path(requester) %>
+        </td>
+        <td>
+          <%= link_to "Accept",
+          accept_friend_path(current_user, requester.id),
+          method: :post %>
+          <%= link_to "Decline",
+          decline_friend_path(current_user, requester.id), method: :post %>
+        </td>
+      </tr>
+      <% end %>
+  <% end %>
+
+  <% unless @user.pending_friends.empty? %>
+    <tr>
+      <th colspan="3" align="left">
+        <%= pluralize(@user.pending_friends.count, "pending friend") %>
+      </th>
+    </tr>
+    <% @user.pending_friends.each do |pending_friend| %>
+      <tr>
+        <td width='150'>
+          <%= link_to pending_friend.first_name, user_path(pending_friend) %>
+        </td>
+        <td>
+          <%= link_to "Cancel request",
+          cancel_friend_path(current_user, pending_friend.id), method: :post %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
+</table>

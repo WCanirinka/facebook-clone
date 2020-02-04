@@ -1,7 +1,6 @@
 <h1>Posts</h1>
-<%= link_to "Home", root_path %>
 <%= create_post_link %>
-<ul>
+<ul class="user-post-index">
   <% @posts.each do |post| %>
     <li><%= render post %></li>
   <% end %>

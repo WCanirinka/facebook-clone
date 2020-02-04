@@ -7,10 +7,12 @@ class User < ApplicationRecord
   has_many :plikes, through: :postlikes, source: :post
   has_many :clikes, through: :commentlikes, source: :comment
   has_many :friendships
-  has_many :friends, -> { where(friendships: { status: 'accepted' }) }, through: :friendships
-  has_many :requested_friends, -> { where(friendships: { status: 'requested' }) },
+  has_many :friends, -> { where(friendships: { status: 'accepted' }).order('first_name DESC') },
+           through: :friendships
+  has_many :requested_friends, -> { where(friendships: { status: 'requested' }).order('created_at DESC') },
            through: :friendships, source: :friend
-  has_many :pending_friends, -> { where(friendships: { status: 'pending' }) }, through: :friendships, source: :friend
+  has_many :pending_friends, -> { where(friendships: { status: 'pending' }).order('created_at DESC') },
+           through: :friendships, source: :friend
   before_save :downcase_email
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and
