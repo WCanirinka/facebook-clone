@@ -12,7 +12,8 @@
     </td>
     <td>
       <%= link_to "Delete",
-      delete_friend_path(current_user, friend) %>
+      delete_friend_path(current_user, friend),
+      method: :post %>
       <% end %>
     </td>
   </tr>

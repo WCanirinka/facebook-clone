@@ -7,7 +7,7 @@
     <div class="sidebar_box">
         <%= link_to "Request friendship with #{user.first_name}",
           { :controller => "friendships", :action => "create",
-          :friend => user.id },
+          :id => user.id },
           method: :post,
           :confirm =>
           "Send friend request to #{user.first_name}?" %>

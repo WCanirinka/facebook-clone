@@ -13,9 +13,9 @@ class FriendshipsController < ApplicationController
   def accept
     if @user.requested_friends.include?(@friend)
       Friendship.accept(@user, @friend)
-      flash[:notice] = "Friendship with #{@friend.screen_name} accepted!"
+      flash[:notice] = "Friendship with #{@friend.first_name} accepted!"
     else
-      flash[:notice] = "No friendship request from #{@friend.screen_name}."
+      flash[:notice] = "No friendship request from #{@friend.first_name}."
     end
     redirect_to root_path
   end
@@ -23,9 +23,9 @@ class FriendshipsController < ApplicationController
   def decline
     if @user.requested_friends.include?(@friend)
       Friendship.breakup(@user, @friend)
-      flash[:notice] = "Friendship with #{@friend.screen_name} declined"
+      flash[:notice] = "Friendship with #{@friend.first_name} declined"
     else
-      flash[:notice] = "No friendship request from #{@friend.screen_name}."
+      flash[:notice] = "No friendship request from #{@friend.first_name}."
     end
     redirect_to root_path
   end
@@ -35,7 +35,7 @@ class FriendshipsController < ApplicationController
       Friendship.breakup(@user, @friend)
       flash[:notice] = 'Friendship request canceled.'
     else
-      flash[:notice] = "No request for friendship with #{@friend.screen_name}"
+      flash[:notice] = "No request for friendship with #{@friend.first_name}"
     end
     redirect_to root_path
   end
@@ -43,9 +43,9 @@ class FriendshipsController < ApplicationController
   def delete
     if @user.friends.include?(@friend)
       Friendship.breakup(@user, @friend)
-      flash[:notice] = "Friendship with #{@friend.screen_name} deleted!"
+      flash[:notice] = "Friendship with #{@friend.first_name} deleted!"
     else
-      flash[:notice] = "You aren't friends with #{@friend.screen_name}"
+      flash[:notice] = "You aren't friends with #{@friend.first_name}"
     end
     redirect_to root_path
   end
@@ -54,6 +54,6 @@ class FriendshipsController < ApplicationController
 
   def setup_friends
     @user = current_user
-    @friend = User.find(params[:friend])
+    @friend = User.find(params[:id])
   end
 end
