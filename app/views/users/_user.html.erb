@@ -11,7 +11,7 @@
           :id => user.id },
           method: :post,
           :confirm =>
-          "Send friend request to #{user.first_name}?" %>
+          "Send friend request to #{user.first_name}?", id: "user-#{user.id}" %>
         <% end %>
     </div>
   </div>

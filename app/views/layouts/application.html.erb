@@ -25,7 +25,7 @@
           <p class="user-info">Signed in as <%= current_user.email %></p>
         <% end %>
         <%= link_to "Posts", posts_path, :class => "header-link" %>
-        <%= link_to "Users", users_path, :class => "header-link" %>
+        <%= link_to "Users", users_path, :class => "header-link", :id => 'users-index' %>
 
       </div>
     </nav>

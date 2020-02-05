@@ -22,7 +22,7 @@ RSpec.describe 'UsersLogins', type: :request do
       expect(response).to redirect_to(root_path)
       follow_redirect!
       get users_path
-      post '/friendships?friend=3'
+      post '/friendships?id=3'
       expect(Friendship.find_by_user_id_and_friend_id(@user, '3')).to be_valid
     end
   end
