@@ -3,6 +3,7 @@
     <p><%= post.content %></p>
     <h6>Updated at: <%= post.updated_at %></h6>
     <h6> <%= post_user_name(post) %> </h6>
+    <% unless current_user.nil? %>
     <div class="like-unlike">
       <% unless current_user.liked_post?(post) %>
         <%= form_for(current_user.postlikes.build) do |f| %>
@@ -16,6 +17,7 @@
         <% end %>
       <% end %>
     </div>
+    <% end %>
     <div class="likes">
       <p>Post Likes: <%= post.postlikes.count %></p>
     </div>

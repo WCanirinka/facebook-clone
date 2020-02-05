@@ -24,7 +24,7 @@ RSpec.describe Post, type: :model do
             seeing a list of Ubuntu teams outside the general Ubuntu world,
             check out our social network. '
 
-    @user = User.create(email: 'foobar@example.com', first_name: 'foobar', password: 'foobar')
+    @user = User.create!(email: 'foobar6@example.com', first_name: 'foobar', password: 'foobar')
     @post = Post.create(title: 'title123', content: 'text123', user_id: @user.id)
     @post2 = Post.create(title: 'title123', content: text, user_id: @user.id)
   end

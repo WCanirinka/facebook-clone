@@ -6,26 +6,38 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+      </script>
+    <![endif]-->
   </head>
 
   <header class="navbar top-navbar">
     <nav>
-      <div id="user_nav">
-        <% if user_signed_in? %>
-          Signed in as <%= current_user.email %>
-          <%= link_to "Profile", myprofile_path, :class => "header-link" %>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "header-link" %>
-        <% else %>
+      <div id="user-nav">
+        <%= link_to "Home", root_path, :class => "header-link" %>
+        <% if !user_signed_in? %>
           <%= link_to "Sign up", new_user_registration_path, :class => "header-link" %>
           <%= link_to "Sign in", new_user_session_path, :class => "header-link" %>
+        <% else %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "header-link" %>
+          <p class="user-info">Signed in as <%= current_user.email %></p>
         <% end %>
         <%= link_to "Posts", posts_path, :class => "header-link" %>
+        <%= link_to "Users", users_path, :class => "header-link", :id => 'users-index' %>
+
       </div>
     </nav>
   </header>
 
   <body>
+    <% if user_signed_in? %>
+    <div class="float-right mini-box">
+      <%= render "friendships/friends" %>
+    </div>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>

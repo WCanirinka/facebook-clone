@@ -3,10 +3,20 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.email %>
-      </h1>
+      <h1> <%= gravatar_for @user %> </h1>
+      <h3> <%= @user.email %></h3>
+      <div>
+        <%= friendship_status(current_user, @user) %>
+        <% unless Friendship.exists?(current_user, @user) %>
+          <br/>
+          <%= link_to "Request friendship with #{@user.first_name}",
+          { :controller => "friendships", :action => "create",
+          :id => @user.id },
+          method: :post,
+          :confirm =>
+          "Send friend request to #{@user.first_name}?" %>
+        <% end %>
+      </div>
     </section>
   </aside>
 </div>
