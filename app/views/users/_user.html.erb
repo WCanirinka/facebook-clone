@@ -5,7 +5,7 @@
   <p> <%= user.created_at %> </p>
   <div>
     <div class="sidebar_box">
-      <% unless Friendship.exists?(current_user, user) || current_user %>
+      <% unless Friendship.exists?(current_user, user) || current_user == user %>
         <%= link_to "Request friendship with #{user.first_name}",
           { :controller => "friendships", :action => "create",
           :id => user.id },
