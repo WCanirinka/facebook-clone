@@ -24,7 +24,7 @@ def stub_omniauth
 end
 
 RSpec.feature 'Omniauths', type: :feature do
-  scenario 'using google oauth2' do
+  scenario 'using facebook oauth2' do
     stub_omniauth
     visit root_path
     click_on 'Sign up'
