@@ -42,8 +42,8 @@ In this project we used:
 
 ## Contributors
 
-* Wilfried Canirinka - [Email][canirinkawilfried@gmail.com] - [GitHub][https://github.com/WCanirinka] <br>
-* Ilhan Sönmez - [Email][ilhansnmz44@gmail.com] - [GitHub][https://github.com/WCanirinka]
+* Wilfried Canirinka - [Email][email Wilfried] - [GitHub][repo WCanirinka] <br>
+* Ilhan Sönmez - [Email][email ilhan] - [GitHub][repo ilhun]
 
 
 <!-- Links -->
@@ -57,3 +57,7 @@ In this project we used:
 [friendship]: https://explainextended.com/2009/03/07/selecting-friends/
 [ERD]: https://rawcdn.githack.com/WCanirinka/facebook-clone/c4d0feccfa1c43fc03209046fe29c4b07c3f6c51/docs/image.png
 [Repo]: https://github.com/WCanirinka/facebook-clone
+[email ilhan]: ilhansnmz44@gmail.com
+[email Wilfried]: canirinkawilfried@gmail.com
+[repo ilhun]: https://github.com/300ms
+[repo WCanirinka]: https://github.com/WCanirinka
