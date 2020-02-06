@@ -55,5 +55,5 @@ In this project we used:
 [bootstrap]: https://getbootstrap.com/
 [lucid-chart]: https://www.lucidchart.com/documents#/dashboard
 [friendship]: https://explainextended.com/2009/03/07/selecting-friends/
-[ERD]: https://rawcdn.githack.com/WCanirinka/facebook-clone/ea0ed1b570637b45bdfc9340eca947d0bec5ed0d/docs/image.png
+[ERD]: https://rawcdn.githack.com/WCanirinka/facebook-clone/c4d0feccfa1c43fc03209046fe29c4b07c3f6c51/docs/image.png
 [Repo]: https://github.com/WCanirinka/facebook-clone
