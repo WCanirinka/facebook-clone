@@ -22,7 +22,6 @@ This project was divided into 8 milestones:
 The Entity-Relationship Diagram (ERD) describes illustratively how the associations work in this project. Our final version can be seen below:
 
 ![ERD][ERD]
-
 ## Live version and github repository
 
 <!-- For a live version, you can visit https://friendsnet.herokuapp.com/ -->
