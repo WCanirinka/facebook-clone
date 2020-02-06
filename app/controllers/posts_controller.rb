@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @post = Post.new
   end
@@ -21,7 +23,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.all
+    @self_n_friends = current_user.friends.pluck(:id) << current_user.id
+    @posts = Post.where(user_id: @self_n_friends)
     @logged_in = user_signed_in?
   end
 
