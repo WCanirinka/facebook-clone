@@ -43,7 +43,7 @@ In this project we used:
 ## Contributors
 
 * Wilfried Canirinka - [Email][email Wilfried] - [GitHub][repo WCanirinka] <br>
-* Ilhan Sönmez - [Email][email ilhan] - [GitHub][repo ilhun]
+* Ilhan Sönmez - [Email][email ilhan] - [GitHub][repo ilhan]
 
 
 <!-- Links -->
@@ -59,5 +59,5 @@ In this project we used:
 [Repo]: https://github.com/WCanirinka/facebook-clone
 [email ilhan]: ilhansnmz44@gmail.com
 [email Wilfried]: canirinkawilfried@gmail.com
-[repo ilhun]: https://github.com/300ms
+[repo ilhan]: https://github.com/300ms
 [repo WCanirinka]: https://github.com/WCanirinka
