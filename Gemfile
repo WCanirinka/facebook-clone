@@ -42,6 +42,7 @@ gem 'rails-controller-testing'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
+gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-facebook'
 group :development, :test do
