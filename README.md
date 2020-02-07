@@ -24,7 +24,7 @@ The Entity-Relationship Diagram (ERD) describes illustratively how the associati
 ![ERD][ERD]
 ## Live version and github repository
 
-<!-- For a live version, you can visit https://friendsnet.herokuapp.com/ -->
+For a live version, you can visit [App][app]
 
 The Github repository is [here][Repo]
 
@@ -61,3 +61,4 @@ In this project we used:
 [email Wilfried]: canirinkawilfried@gmail.com
 [repo ilhan]: https://github.com/300ms
 [repo WCanirinka]: https://github.com/WCanirinka
+[app]: https://facebook-clone-il-wi.herokuapp.com/
