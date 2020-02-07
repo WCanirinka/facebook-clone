@@ -1,0 +1,17 @@
+<div class="post-container">
+  <%= render @post %>
+  <p>Author: <%= @post.user.first_name %></p>
+  <p>
+    <% if user_signed_in? %>
+      <%= link_to "Delete" , post_path(@post), method: :delete,data: {confirm: "Are you sure ?"} %>
+    <% end %>
+    <%= link_to "Posts" , posts_path %>
+  </p>
+
+  <div class="comments">
+    <h4> <%= @post.comments.count %> Comments </h4>
+    <%= render @post.comments %>
+    <h5>Join Discussion</h5>
+    <%= render 'comments/form' %>
+  </div>
+</div>

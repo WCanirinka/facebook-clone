@@ -1,0 +1,21 @@
+<li>
+    <p><%= comment.content %></p>
+    <h6>Updated at: <%= comment.updated_at %></h6>
+    <h6> <%= comment_user_name(comment) %> </h6>
+    <div class="like-unlike">
+      <% unless current_user.liked_comment?(comment) %>
+        <%= form_for(current_user.commentlikes.build) do |f| %>
+          <%= hidden_field_tag :comment_id, comment.id %>
+          <%= f.submit 'Like Comment' %>
+        <% end %>
+      <% else %>
+        <%= form_for(current_user.commentlikes.find_by(comment_id: comment.id), html: {method: :delete}) do |f| %>
+          <%= hidden_field_tag :comment_id, comment.id %>
+          <%= f.submit 'Unlike Comment' %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="likes">
+      <p>Comment Likes: <%= comment.commentlikes.count %></p>
+    </div>
+<li>

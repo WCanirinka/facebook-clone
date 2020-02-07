@@ -1,0 +1,241 @@
+@import 'bootstrap';
+@import 'bootstrap-sprockets';
+
+$face-color: #4267b2;
+$face-back:  #e9ebee;
+
+ul {
+  list-style: none;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.pl-0 {
+  padding-left: 0;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
+.pt-5 {
+  padding-top: 5px
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.alert {
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+.alert-success {
+  color: #1e6641;
+  background-color: #d8f3e5;
+  border-color: #c8eedb;
+}
+
+.alert-notice {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-alert {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+}
+
+header {
+  background-color: $face-color;
+
+  .container {
+    align-items: center;
+    display: flex;
+    width: 100%;
+  }
+
+  .header-link {
+    color: white;
+    padding: 5px;
+
+    &:hover, &:focus {
+      color: $face-color;
+      border-radius: 15px;
+      background-color: #eeeeee;
+      text-decoration: none;
+    }
+  }
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.top-navbar {
+  position: relative;
+  z-index: 1043;
+  font-size: 25px;
+}
+
+.bottom-navbar {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid lightgray;
+  color: black;
+  a {
+    color: $gray;
+    &:hover {
+      color: $gray-darker;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
+
+.main-page {
+  padding: 50px;
+  background-color: $face-back;
+  margin-top: 20px;
+
+  form {
+    width: 80%;
+    padding-top: 20px;
+    margin: 0 auto;
+    // font-size: 30px;
+  }
+
+  .index-posts {
+    padding-top: 40px;
+    margin-left: 25%
+  }
+
+  .new-post {
+    width: 100%;
+  }
+}
+
+.user-space, .friends-space {
+  background-color: lightblue;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.logo {
+  color: white;
+}
+
+.elements-to-right {
+  display: flex;
+  flex-direction: row-reverse;
+  flex: 1;
+}
+
+.edit-links {
+  font-size: 20px;
+}
+
+.cancel-account {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.cancel-button {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.static-pages-text {
+  font-size: 25px;
+  padding-left: 30px;
+}
+
+.mini-box {
+  width: 300px;
+  float: right;
+  background-color: $face-back;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: black;
+  padding: 10px;
+
+  a {
+    color: white;
+    padding: 5px;
+    color: #004085;
+    background-color: #cce5ff;
+    border-radius: 15px;
+    text-decoration: none;
+    line-height: 30px;
+    }
+}
+
+.user-post-index {
+  width: 50%;
+  li {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-self: left;
+    align-items:  center;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+  }
+}
+
+#user-nav {
+  display: flex;
+  justify-content: right;
+  a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    line-height: 1;
+  }
+  p {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 10px;
+    margin: 0;
+  }
+}

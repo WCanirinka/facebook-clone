@@ -1,0 +1,19 @@
+<li>
+  <h1> <%= gravatar_for user %> </h1>
+  <h3> <%= link_to user.first_name, user_path(user) %></h3>
+  <h5> <%= user.email %> </h5>
+  <p> <%= user.created_at %> </p>
+  <div>
+    <div class="sidebar_box">
+      <% unless Friendship.exists?(current_user, user) || current_user == user %>
+        <%= link_to "Request friendship with #{user.first_name}",
+          { :controller => "friendships", :action => "create",
+          :id => user.id },
+          method: :post,
+          :confirm =>
+          "Send friend request to #{user.first_name}?", id: "user-#{user.id}" %>
+        <% end %>
+    </div>
+  </div>
+  <br><br>
+</li>
