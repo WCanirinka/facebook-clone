@@ -42,7 +42,7 @@ In this project we used:
 
 ## Contributors
 
-* Wilfried Canirinka - [Email][email Wilfried] - [GitHub][repo WCanirinka] <br>
+* Wilfried Canirinka - [Email][email Wilfried] - [GitHub][repo WCanirinka] [Twitter][WCanirinka] <br>
 * Ilhan Sönmez - [Email][email ilhan] - [GitHub][repo ilhan]
 
 
@@ -62,3 +62,4 @@ In this project we used:
 [repo ilhan]: https://github.com/300ms
 [repo WCanirinka]: https://github.com/WCanirinka
 [app]: https://facebook-clone-il-wi.herokuapp.com/
+[WCanirinka]: https://twitter.com/WCanirinka
